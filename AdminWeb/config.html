@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Barcode Play</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 24px; }
+    .card { max-width: 840px; padding: 16px; border: 1px solid #8883; border-radius: 12px; box-shadow: 0 2px 8px #0001; }
+    .row { display:flex; gap:8px; align-items:center; margin:8px 0; }
+    input, button { padding:8px; font-size:16px; }
+    .muted { opacity:.8; }
+    details { margin: 8px 0; }
+    summary { cursor: pointer; font-weight: 600; }
+    table { width:100%; border-collapse:collapse; margin-top:12px; }
+    th, td { border-bottom:1px solid #9993; padding:6px 8px; text-align:left; }
+    .ok { color: #0a0; }
+    .warn { color: #c80; }
+    .err { color: #a00; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Barcode Play Settings</h2>
+    <p class="muted">Scan DVD/Blu-ray barcodes to play matching titles on a Jellyfin client session.</p>
+
+    <details id="keys">
+      <summary>API Keys (UPCitemdb & TMDb)</summary>
+      <div class="row">
+        <label style="min-width:180px">UPCitemdb API Key</label>
+        <input id="upc" class="full" placeholder="demo-upcitemdb-key"/>
+      </div>
+      <div class="row">
+        <label style="min-width:180px">TMDb API Key</label>
+        <input id="tmdb" class="full" placeholder="demo-tmdb-key"/>
+      </div>
+    </details>
+
+    <details>
+      <summary>Playback Target</summary>
+      <div class="row">
+        <label style="min-width:180px">Default Session Id</label>
+        <input id="session" placeholder="Optional; pick most recent if blank"/>
+      </div>
+      <div class="row">
+        <label style="min-width:180px">Prefer exact title match</label>
+        <input id="exact" type="checkbox"/>
+      </div>
+    </details>
+
+    <h3>Quick Tester</h3>
+    <div class="row">
+      <input id="barcode" placeholder="Focus here and scan…"/>
+      <button id="send">Test Scan</button>
+      <span id="status" class="muted"></span>
+    </div>
+    <div id="last"></div>
+
+    <h3>History</h3>
+    <table><thead><tr><th>Time</th><th>Code</th><th>Status</th><th>Details</th></tr></thead><tbody id="log"></tbody></table>
+  </div>
+  <script src="./config.js"></script>
+</body>
+</html>

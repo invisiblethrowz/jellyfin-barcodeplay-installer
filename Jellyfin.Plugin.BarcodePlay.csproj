@@ -19,5 +19,30 @@
   <Reference Include="MediaBrowser.Server.Implementations">
     <HintPath>lib/MediaBrowser.Server.Implementations.dll</HintPath>
   </Reference>
+  <!-- Logging dependencies -->
+  <Reference Include="Microsoft.Extensions.Logging">
+    <HintPath>lib/Microsoft.Extensions.Logging.dll</HintPath>
+  </Reference>
+  <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+    <HintPath>lib/Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+  </Reference>
+  <Reference Include="Microsoft.Extensions.Logging.Configuration">
+    <HintPath>lib/Microsoft.Extensions.Logging.Configuration.dll</HintPath>
+  </Reference>
+  <Reference Include="Microsoft.Extensions.Logging.Console">
+    <HintPath>lib/Microsoft.Extensions.Logging.Console.dll</HintPath>
+  </Reference>
+  <Reference Include="Microsoft.Extensions.Logging.Debug">
+    <HintPath>lib/Microsoft.Extensions.Logging.Debug.dll</HintPath>
+  </Reference>
+  <Reference Include="Microsoft.Extensions.Logging.EventLog">
+    <HintPath>lib/Microsoft.Extensions.Logging.EventLog.dll</HintPath>
+  </Reference>
+  <Reference Include="Microsoft.Extensions.Logging.EventSource">
+    <HintPath>lib/Microsoft.Extensions.Logging.EventSource.dll</HintPath>
+  </Reference>
+  <Reference Include="Microsoft.Extensions.Logging.TraceSource">
+    <HintPath>lib/Microsoft.Extensions.Logging.TraceSource.dll</HintPath>
+  </Reference>
 </ItemGroup>
 </Project>

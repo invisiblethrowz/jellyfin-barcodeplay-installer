@@ -1,26 +1,28 @@
 using MediaBrowser.Common.Plugins;
-using MediaBrowser.Model.Plugins;
-using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 
 namespace Jellyfin.Plugin.BarcodePlay
 {
     public class Plugin : BasePlugin<PluginConfiguration>, IHasWebPages
     {
-        public override string Name => "BarcodePlay";
-        public override string Description => "Scan DVD barcodes and play movies in Jellyfin";
-        public Plugin(ILogger<Plugin> logger)
-        {
-            logger.LogInformation("BarcodePlay plugin loaded. Ready to scan.");
-        }
+        public override string Name => "Barcode Play";
+        public override Guid Id { get; } = Guid.Parse("c3b769e0-1e2a-4f32-bf8b-4d6f4b7a9e6a");
 
-        public PluginPageInfo[] GetPages()
+        public Plugin(IApplicationPaths applicationPaths) : base(applicationPaths) { }
+
+        public IEnumerable<PluginPageInfo> GetPages()
         {
             return new[]
             {
                 new PluginPageInfo
                 {
-                    Name = "barcodeplay",
-                    EmbeddedResourcePath = GetType().Namespace + ".AdminWeb.index.html"
+                    Name = "barcodeplay.html",
+                    EmbeddedResourcePath = GetType().Namespace + ".Web.config.html"
+                },
+                new PluginPageInfo
+                {
+                    Name = "barcodeplay.js",
+                    EmbeddedResourcePath = GetType().Namespace + ".Web.config.js"
                 }
             };
         }

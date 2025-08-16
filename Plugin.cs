@@ -1,5 +1,9 @@
-using MediaBrowser.Common.Plugins;
+using MediaBrowser.Common.Plugins;  // for IHasWebPages
+using MediaBrowser.Model.Plugins;
+using MediaBrowser.Controller.Plugins;
+using System;
 using System.Collections.Generic;
+
 
 namespace Jellyfin.Plugin.BarcodePlay
 {

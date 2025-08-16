@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
     <RootNamespace>Jellyfin.Plugin.BarcodePlay</RootNamespace>
     <AssemblyName>Jellyfin.Plugin.BarcodePlay</AssemblyName>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>

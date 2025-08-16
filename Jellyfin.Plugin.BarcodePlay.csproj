@@ -7,14 +7,17 @@
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MediaBrowser.Common">
-      <HintPath>lib/MediaBrowser.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="MediaBrowser.Controller">
-      <HintPath>lib/MediaBrowser.Controller.dll</HintPath>
-    </Reference>
-    <Reference Include="MediaBrowser.Model">
-      <HintPath>lib/MediaBrowser.Model.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+  <Reference Include="MediaBrowser.Common">
+    <HintPath>lib/MediaBrowser.Common.dll</HintPath>
+  </Reference>
+  <Reference Include="MediaBrowser.Controller">
+    <HintPath>lib/MediaBrowser.Controller.dll</HintPath>
+  </Reference>
+  <Reference Include="MediaBrowser.Model">
+    <HintPath>lib/MediaBrowser.Model.dll</HintPath>
+  </Reference>
+  <Reference Include="MediaBrowser.Server.Implementations">
+    <HintPath>lib/MediaBrowser.Server.Implementations.dll</HintPath>
+  </Reference>
+</ItemGroup>
 </Project>

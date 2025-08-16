@@ -18,6 +18,8 @@ cd "$REPO_DIR"
 echo "[*] Copying Jellyfin assemblies from $JELLYFIN_LIB"
 mkdir -p lib
 cp "$JELLYFIN_LIB"/MediaBrowser.*.dll lib/ || true
+cp "$JELLYFIN_LIB"/Microsoft.Extensions.Logging*.dll lib/ || true
+
 
 echo "[*] Building plugin"
 dotnet build -c Release

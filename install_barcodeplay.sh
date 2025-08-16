@@ -4,7 +4,7 @@ set -e
 BUILD_DIR="$HOME/.barcodeplay_build"
 REPO_DIR="$BUILD_DIR/repo"
 PLUGIN_DIR="/var/lib/jellyfin/plugins/BarcodePlay"
-JELLYFIN_LIB="/usr/lib/jellyfin"
+JELLYFIN_LIB="/usr/lib/jellyfin/bin"
 
 echo "[*] Cleaning build dir"
 rm -rf "$BUILD_DIR"
@@ -15,7 +15,7 @@ git clone https://github.com/invisiblethrowz/jellyfin-barcodeplay-installer.git 
 
 cd "$REPO_DIR"
 
-echo "[*] Copying Jellyfin assemblies"
+echo "[*] Copying Jellyfin assemblies from $JELLYFIN_LIB"
 mkdir -p lib
 cp "$JELLYFIN_LIB"/MediaBrowser.*.dll lib/ || true
 

@@ -1,38 +1,32 @@
 #!/bin/bash
 set -e
 
-echo "[*] Installing BarcodePlay plugin..."
+BUILD_DIR="$HOME/.barcodeplay_build"
+REPO_DIR="$BUILD_DIR/repo"
+PLUGIN_DIR="/var/lib/jellyfin/plugins/BarcodePlay"
+JELLYFIN_LIB="/usr/lib/jellyfin"
 
-WORKDIR="$HOME/.barcodeplay_build"
-REPO="https://github.com/invisiblethrowz/jellyfin-barcodeplay-installer.git"
-PLUGINDIR="/var/lib/jellyfin/plugins/Jellyfin.Plugin.BarcodePlay"
+echo "[*] Cleaning build dir"
+rm -rf "$BUILD_DIR"
+mkdir -p "$REPO_DIR"
 
-mkdir -p "$WORKDIR"
-cd "$WORKDIR"
+echo "[*] Cloning repo"
+git clone https://github.com/invisiblethrowz/jellyfin-barcodeplay-installer.git "$REPO_DIR"
 
-if [ ! -d repo ]; then
-  git clone "$REPO" repo
-else
-  cd repo
-  git pull
-  cd ..
-fi
+cd "$REPO_DIR"
 
-cd repo
-
-# Copy Jellyfin assemblies
+echo "[*] Copying Jellyfin assemblies"
 mkdir -p lib
-cp -v /usr/lib/jellyfin/*.dll lib/ || true
+cp "$JELLYFIN_LIB"/MediaBrowser.*.dll lib/ || true
 
-# Build plugin
+echo "[*] Building plugin"
 dotnet build -c Release
 
-# Install plugin
-sudo mkdir -p "$PLUGINDIR"
-sudo cp -v bin/Release/net8.0/Jellyfin.Plugin.BarcodePlay.dll "$PLUGINDIR"
+echo "[*] Installing plugin"
+sudo mkdir -p "$PLUGIN_DIR"
+sudo cp "$REPO_DIR/bin/Release/net8.0/Jellyfin.Plugin.BarcodePlay.dll" "$PLUGIN_DIR/"
 
-# Restart Jellyfin
-echo "[*] Restarting Jellyfin..."
+echo "[*] Restarting Jellyfin"
 sudo systemctl restart jellyfin
 
-echo "[+] BarcodePlay installed successfully."
+echo "[✓] Installed Jellyfin.Plugin.BarcodePlay"

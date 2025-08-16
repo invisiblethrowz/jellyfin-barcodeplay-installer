@@ -1,20 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <AssemblyName>Jellyfin.Plugin.BarcodePlay</AssemblyName>
     <RootNamespace>Jellyfin.Plugin.BarcodePlay</RootNamespace>
-    <LangVersion>latest</LangVersion>
+    <AssemblyName>Jellyfin.Plugin.BarcodePlay</AssemblyName>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Jellyfin.Common" Version="10.10.7" />
-    <PackageReference Include="Jellyfin.Controller" Version="10.10.7" />
-    <PackageReference Include="Jellyfin.Model" Version="10.10.7" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="AdminWeb/**" />
+    <Reference Include="MediaBrowser.Common">
+      <HintPath>lib/MediaBrowser.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MediaBrowser.Controller">
+      <HintPath>lib/MediaBrowser.Controller.dll</HintPath>
+    </Reference>
+    <Reference Include="MediaBrowser.Model">
+      <HintPath>lib/MediaBrowser.Model.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

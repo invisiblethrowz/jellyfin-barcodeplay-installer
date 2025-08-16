@@ -29,7 +29,7 @@ cd "$(find repo -maxdepth 1 -type d -name '*-main' | head -n1)"
 
 echo "=== [BarcodePlay] Adding Jellyfin NuGet source (if missing) ==="
 if ! dotnet nuget list source | grep -q "https://repo.jellyfin.org/releases/plugin/api/v3/nuget/index.json"; then
-  dotnet nuget add source https://repo.jellyfin.org/releases/plugin/api/v3/nuget/index.json --name jellyfin
+  dotnet nuget add source https://repo.jellyfin.org/releases/server/nuget -n jellyfin
 fi
 
 echo "=== [BarcodePlay] Stopping Jellyfin service (if running) ==="
